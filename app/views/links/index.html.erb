@@ -7,15 +7,15 @@
     <th></th>
   </tr>
 
-<% @links.each do |link| %>
+<% @prototype.pages.links.each do |link| %>
   <tr>
-    <td><%= link_to 'Show', link %></td>
-    <td><%= link_to 'Edit', edit_link_path(link) %></td>
-    <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@prototype,@page,link] %></td>
+    <td><%= link_to 'Edit', edit_prototype_page_link_path(link) %></td>
+    <td><%= link_to 'Destroy', [@prototype,@page,link], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Link', new_link_path %>
+<%= link_to 'New Link', new_prototype_page_link_path(@prototype, @page) %>

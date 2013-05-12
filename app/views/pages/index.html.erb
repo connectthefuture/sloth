@@ -5,17 +5,19 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
-<% @pages.each do |page| %>
+<% @prototype.pages.each do |page| %>
   <tr>
-    <td><%= link_to 'Show', page %></td>
-    <td><%= link_to 'Edit', edit_page_path(page) %></td>
-    <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= image_tag page.image.url(:medium) %></td>
+    <td><%= link_to 'Show', [@prototype, page] %></td>
+    <td><%= link_to 'Edit', edit_prototype_page_path(@prototype, page) %></td>
+    <td><%= link_to 'Destroy', [@prototype, page], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Page', new_page_path %>
+<%= link_to 'New Page', new_prototype_page_path(@prototype) %>

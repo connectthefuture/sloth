@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
 
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Edit', edit_prototype_page_link_path(@prototype, @page, @link) %> |
+<%= link_to 'Back', prototype_page_links_path(@prototype, @page) %>

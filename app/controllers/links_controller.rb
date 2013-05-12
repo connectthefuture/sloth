@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_filter :set_objects
+
   # GET /links
   # GET /links.json
   def index
@@ -79,5 +81,11 @@ class LinksController < ApplicationController
       format.html { redirect_to links_url }
       format.json { head :no_content }
     end
+  end
+  private
+
+  def set_objects
+    @prototype = Prototype.find(params[:prototype_id])
+    @page = @prototype.pages.find(params[:page_id])
   end
 end

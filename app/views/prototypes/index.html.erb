@@ -1,23 +1,8 @@
-<h1>Listing prototypes</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @prototypes.each do |prototype| %>
-  <tr>
-    <td><%= prototype.name %></td>
-    <td><%= link_to 'Show', prototype %></td>
-    <td><%= link_to 'Edit', edit_prototype_path(prototype) %></td>
-    <td><%= link_to 'Destroy', prototype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <%= link_to(edit_prototype_path(prototype), { :class => "prototype" }) do %>
+    <h2 class="prototype-name"><%= prototype.name %></h2>
+    <%= image_tag prototype.pages.first.image.url(:medium) %>
+  <% end %>
 <% end %>
-</table>
-
-<br />
 
 <%= link_to 'New Prototype', new_prototype_path %>
