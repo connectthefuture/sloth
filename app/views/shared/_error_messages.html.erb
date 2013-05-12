@@ -1,0 +1,12 @@
+<% obj = error_messages %>
+<% if obj.errors.any? %>
+  <div id="error_explanation">
+    <h2>Encountered <%= pluralize(obj.errors.count, "error") %> while trying to save:</h2>
+
+    <ul>
+    <% obj.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
