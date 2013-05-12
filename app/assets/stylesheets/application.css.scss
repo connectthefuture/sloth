@@ -8,6 +8,7 @@
 
 $color-green: #67ab4b;
 $color-teal: #1fa8c4;
+$color-red: #882c20;
 
 body, html {
   background: #222;
@@ -18,22 +19,42 @@ body, html {
 
 a {
   color: $color-teal;
+  text-decoration: none;
 }
 
 .header {
-  height: 60px;
   background: #111;
   margin-bottom: 2em;
+  @include clearfix;
+  height: 4em;
+}
+.header-title {
+  @include span-columns(6);
+  p {
+    float: left;
+    line-height: 4em;
+  }
+}
+.header-menu {
+  float: right;
+  display: inline-block;
+  text-align: right;
+  li {
+    float: left;
+    line-height: 4em;
+  }
+  a.primary {
+    color: $color-green;
+    font-weight: bold;
+  }
+  a.destroy {
+    color: $color-red;
+    font-weight: bold;
+  }
 }
 
 .inner {
   @include outer-container;
-}
-
-.button {
-  padding: 6px 18px;
-  background: $color-green;
-  color: #FFF;
 }
 
 .prototype-grid .prototype, .page-grid .page {
@@ -50,6 +71,12 @@ a {
   }
   h2 {
     font-weight: bold;
+    text-align: center;
+  }
+  h3 {
+    margin-top: 0.5em;
+    color: #999;
+    font-size: em(12);
     text-align: center;
   }
   img {

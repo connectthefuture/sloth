@@ -1,13 +1,20 @@
-<% content_for :slothheader do %>
-  <%= link_to 'New Prototype', new_prototype_path, {:class => "button"} %>
+<% content_for :header_title do %>
+  <p>Prototypes</p>
+<% end %>
+
+<% content_for :header_menu do %>
+  <ul>
+    <li><%= link_to 'New Prototype', new_prototype_path, {:class => "primary"} %></li>
+  </ul>
 <% end %>
 
 
 <div class="prototype-grid">
   <% @prototypes.each do |prototype| %>
-    <%= link_to(edit_prototype_path(prototype), { :class => "prototype" }) do %>
+    <%= link_to(prototype_pages_path(prototype), { :class => "prototype" }) do %>
       <%= image_tag prototype.pages.first.image.url(:medium) %>
       <h2 class="prototype-name"><%= prototype.name %></h2>
+      <h3 class="prototype-user-name">Test User</h3>
     <% end %>
   <% end %>
 </div>
