@@ -26,7 +26,7 @@ class PrototypesController < ApplicationController
   def new
     @prototype = Prototype.new
 
-    respond_to do |format|
+    respond_to do |format| 
       format.html # new.html.erb
       format.json { render json: @prototype }
     end
@@ -41,6 +41,7 @@ class PrototypesController < ApplicationController
   # POST /prototypes.json
   def create
     @prototype = Prototype.new(params[:prototype])
+    @prototype.user_id = session[:user_id]
 
     respond_to do |format|
       if @prototype.save

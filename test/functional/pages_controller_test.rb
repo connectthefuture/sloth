@@ -1,49 +1,56 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
+  let(:page){ FactoryGirl.create(:page) }
+  let(:prototype){ page.prototype }
+
   setup do
-    @page = pages(:one)
+    login
   end
 
   test "should get index" do
-    get :index
+    get :index, prototype_id: prototype.id
     assert_response :success
     assert_not_nil assigns(:pages)
   end
 
   test "should get new" do
-    get :new
+    get :new, prototype_id: prototype.id
     assert_response :success
   end
 
   test "should create page" do
+    prototype = FactoryGirl.create(:prototype)
+    
     assert_difference('Page.count') do
-      post :create, page: {  }
+      post :create, page: { name: "pie" }, prototype_id: prototype.id
     end
 
-    assert_redirected_to page_path(assigns(:page))
+    assert_redirected_to prototype_page_path(prototype, assigns(:page))
   end
 
   test "should show page" do
-    get :show, id: @page
+    get :show, id: page.id, prototype_id: prototype.id
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @page
+    get :edit, id: page.id, prototype_id: prototype.id
     assert_response :success
   end
 
   test "should update page" do
-    put :update, id: @page, page: {  }
-    assert_redirected_to page_path(assigns(:page))
+    put :update, id: page, page: { name: "pie" }, prototype_id: prototype.id
+    assert_redirected_to prototype_page_path(prototype, assigns(:page))
   end
 
   test "should destroy page" do
+    prototype
+    
     assert_difference('Page.count', -1) do
-      delete :destroy, id: @page
+      delete :destroy, id: page.id, prototype_id: prototype.id
     end
 
-    assert_redirected_to pages_path
+    assert_redirected_to prototype_pages_path(prototype)
   end
 end

@@ -1,6 +1,7 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :prototype do
+    name "My First Prototype"
+    description "This is my first prototype."
+    association :user, factory: :user
   end
 end
