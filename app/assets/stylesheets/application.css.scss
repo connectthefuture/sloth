@@ -2,10 +2,38 @@
  *= require_self
  */
 
-@import "bourbon";
 @import "lib/_reset";
+@import "bourbon";
+@import "neat";
+
+$color-green: #67ab4b;
+$color-teal: #1fa8c4;
 
 body, html {
   background: #222;
   color: #EEE;
+  font-family: $helvetica;
+}
+
+a {
+  color: $color-teal;
+}
+
+.container {
+  @include outer-container;
+}
+
+.button {
+  padding: 6px 18px;
+  background: $color-green;
+  color: #FFF;
+}
+
+.prototype-grid .prototype {
+  text-decoration: none;
+  @include span-columns(4);
+  h2 {
+    font-weight: bold;
+    text-align: center;
+  }
 }

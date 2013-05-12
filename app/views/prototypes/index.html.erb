@@ -1,8 +1,10 @@
-<% @prototypes.each do |prototype| %>
-  <%= link_to(edit_prototype_path(prototype), { :class => "prototype" }) do %>
-    <h2 class="prototype-name"><%= prototype.name %></h2>
-    <%= image_tag prototype.pages.first.image.url(:medium) %>
+<div class="prototype-grid">
+  <% @prototypes.each do |prototype| %>
+    <%= link_to(edit_prototype_path(prototype), { :class => "prototype" }) do %>
+      <%= image_tag prototype.pages.first.image.url(:medium) %>
+      <h2 class="prototype-name"><%= prototype.name %></h2>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <%= link_to 'New Prototype', new_prototype_path %>
