@@ -6,14 +6,6 @@ development:
   username: root
   password:
 
-development-localhost:
-  adapter: mysql2
-  database: sloth_dev
-  host: 127.0.0.1
-  port: 13306
-  username: root
-  password:
-
 test:
   adapter: mysql2
   database: sloth_test

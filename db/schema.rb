@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512005716) do
+ActiveRecord::Schema.define(:version => 20130512011849) do
 
   create_table "links", :force => true do |t|
     t.string   "page_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130512005716) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "sort"
   end
 
   create_table "prototypes", :force => true do |t|

@@ -5,3 +5,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Sloth::Application.load_tasks
+
+Rake::TestTask.new do |t|
+  t.libs << File.expand_path('../test', __FILE__)
+  t.verbose = true
+end
