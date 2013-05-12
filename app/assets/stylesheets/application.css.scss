@@ -8,6 +8,7 @@
 
 $color-green: #67ab4b;
 $color-teal: #1fa8c4;
+$color-red: #882c20;
 
 body, html {
   background: #222;
@@ -18,22 +19,57 @@ body, html {
 
 a {
   color: $color-teal;
+  text-decoration: none;
 }
 
 .header {
-  height: 60px;
   background: #111;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
+  @include clearfix;
+  height: 4em;
+}
+.header-title {
+  @include span-columns(6);
+  p {
+    float: left;
+    line-height: 4em;
+  }
+}
+.header-menu {
+  float: right;
+  display: inline-block;
+  text-align: right;
+  li {
+    float: left;
+    line-height: 4em;
+  }
+  a.primary {
+    color: $color-green;
+    font-weight: bold;
+  }
+  a.destroy {
+    color: $color-red;
+    font-weight: bold;
+  }
 }
 
 .inner {
   @include outer-container;
 }
 
-.button {
-  padding: 6px 18px;
-  background: $color-green;
-  color: #FFF;
+.prototype-header {
+  @include clearfix();
+  margin-bottom: 3em;
+  h1 {
+    @include span-columns(4);
+    font-size: em(32);
+    font-weight: bold;
+  }
+  p {
+    @include span-columns(8);
+    font-size: em(18);
+    line-height: em(24);
+  }
 }
 
 .prototype-grid .prototype, .page-grid .page {
@@ -52,10 +88,21 @@ a {
     font-weight: bold;
     text-align: center;
   }
+  h3 {
+    margin-top: 0.5em;
+    color: #999;
+    font-size: em(12);
+    text-align: center;
+  }
   img {
     max-width: 100%;
     max-height: 100%;
     display: block;
     margin: 0 auto 0.5em auto;
   }
+}
+
+.page-grid .page {
+  @include span-columns(3);
+  @include omega(4n);
 }
