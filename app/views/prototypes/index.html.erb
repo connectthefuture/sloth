@@ -11,8 +11,12 @@
 
 <div class="prototype-grid">
   <% @prototypes.each do |prototype| %>
-    <%= link_to(prototype_pages_path(prototype), { :class => "prototype" }) do %>
-      <%= image_tag prototype.pages.first.image.url(:medium) %>
+    <%= link_to(prototype_pages_path(prototype), class: "prototype") do %>
+      <% if prototype.pages.any? %>
+        <%= image_tag prototype.pages.first.image.url(:medium) %>
+      <% else %>
+        <%= image_tag "default_page.png" %>
+      <% end %>
       <h2 class="prototype-name"><%= prototype.name %></h2>
       <h3 class="prototype-user-name">Test User</h3>
     <% end %>
