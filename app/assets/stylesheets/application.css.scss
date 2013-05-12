@@ -57,6 +57,14 @@ a {
   @include outer-container;
 }
 
+.prototype-header {
+  margin-bottom: 2em;
+  h1 {
+    font-size: em(32);
+    font-weight: bold;
+  }
+}
+
 .prototype-grid .prototype, .page-grid .page {
   text-decoration: none;
   @include span-columns(4);
