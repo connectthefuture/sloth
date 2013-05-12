@@ -1,0 +1,21 @@
+<h1>Listing links</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @prototype.pages.links.each do |link| %>
+  <tr>
+    <td><%= link_to 'Show', admin_prototype_page_link_path(@prototype, @page, link) %></td>
+    <td><%= link_to 'Edit', edit_admin_prototype_page_link_path(link) %></td>
+    <td><%= link_to 'Destroy', admin_prototype_page_link_path(@prototype, @page, link), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Link', new_admin_prototype_page_link_path(@prototype, @page) %>

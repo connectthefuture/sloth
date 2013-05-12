@@ -1,8 +1,6 @@
-class LinksController < ApplicationController
+class Admin::LinksController < ApplicationController
   before_filter :set_objects
 
-  # GET /links
-  # GET /links.json
   def index
     @links = Link.all
 
@@ -12,8 +10,6 @@ class LinksController < ApplicationController
     end
   end
 
-  # GET /links/1
-  # GET /links/1.json
   def show
     @link = Link.find(params[:id])
 
@@ -23,8 +19,6 @@ class LinksController < ApplicationController
     end
   end
 
-  # GET /links/new
-  # GET /links/new.json
   def new
     @link = Link.new
 
@@ -34,19 +28,16 @@ class LinksController < ApplicationController
     end
   end
 
-  # GET /links/1/edit
   def edit
     @link = Link.find(params[:id])
   end
 
-  # POST /links
-  # POST /links.json
   def create
     @link = Link.new(params[:link])
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to [:admin, @prototype, @page, @link], notice: 'Link was successfully created.' }
         format.json { render json: @link, status: :created, location: @link }
       else
         format.html { render action: "new" }
@@ -55,14 +46,12 @@ class LinksController < ApplicationController
     end
   end
 
-  # PUT /links/1
-  # PUT /links/1.json
   def update
     @link = Link.find(params[:id])
 
     respond_to do |format|
       if @link.update_attributes(params[:link])
-        format.html { redirect_to @link, notice: 'Link was successfully updated.' }
+        format.html { redirect_to [:admin, @prototype, @page, @link], notice: 'Link was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -71,17 +60,16 @@ class LinksController < ApplicationController
     end
   end
 
-  # DELETE /links/1
-  # DELETE /links/1.json
   def destroy
     @link = Link.find(params[:id])
     @link.destroy
 
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to admin_prototype_page_links_path(@prototype, @page) }
       format.json { head :no_content }
     end
   end
+
   private
 
   def set_objects
