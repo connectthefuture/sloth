@@ -19,7 +19,7 @@ a {
   color: $color-teal;
 }
 
-.container {
+.inner {
   @include outer-container;
 }
 
@@ -29,11 +29,25 @@ a {
   color: #FFF;
 }
 
-.prototype-grid .prototype {
+.prototype-grid .prototype, .page-grid .page {
   text-decoration: none;
   @include span-columns(4);
+  @include omega(3n);
+  margin-bottom: 2em;
+  @include pad(1em);
+  background: #333;
+  border-radius: 2px;
+  color: #FFF;
+  &:hover {
+    background: #444;
+  }
   h2 {
     font-weight: bold;
     text-align: center;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 0.5em auto;
   }
 }

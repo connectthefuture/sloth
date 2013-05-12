@@ -8,8 +8,16 @@
 </head>
 <body>
 
-<div class="container">
-  <%= yield %>
+<header class="header">
+  <div class="inner">
+    <%= content_for :slothheader %>
+  </div>
+</header>
+
+<div class="content">
+  <div class="inner">
+    <%= yield %>
+  </div>
 </div>
 
 </body>
