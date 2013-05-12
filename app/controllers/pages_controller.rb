@@ -67,7 +67,7 @@ class PagesController < ApplicationController
   private
 
   def set_objects
-    @prototype = Prototype.find(params[:prototype_id])
+    @prototype = Prototype.find_by_permalink!(params[:prototype_id])
     @page = @prototype.pages.find(params[:id]) if params[:id]
   end
 end

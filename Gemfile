@@ -6,6 +6,7 @@ gem 'google_auth'
 gem 'bourbon'
 gem 'neat'
 gem 'paperclip'
+gem 'acts_as_permalink'
 
 gem 'mysql2'
 gem 'jquery-rails'

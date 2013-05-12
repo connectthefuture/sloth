@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512041122) do
+ActiveRecord::Schema.define(:version => 20130512052833) do
 
   create_table "links", :force => true do |t|
     t.integer  "pos_x"
@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(:version => 20130512041122) do
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
     t.text     "description"
+    t.string   "permalink"
   end
 
+  add_index "prototypes", ["permalink"], :name => "index_prototypes_on_permalink"
   add_index "prototypes", ["user_id"], :name => "index_prototypes_on_user_id"
 
   create_table "users", :force => true do |t|

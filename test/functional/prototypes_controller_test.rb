@@ -27,12 +27,12 @@ class PrototypesControllerTest < ActionController::TestCase
   end
 
   test "should show prototype" do
-    get :show, id: prototype.id
+    get :show, id: prototype.permalink
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: prototype.id
+    get :edit, id: prototype.permalink
     assert_response :success
   end
 
@@ -45,7 +45,7 @@ class PrototypesControllerTest < ActionController::TestCase
     prototype
     
     assert_difference('Prototype.count', -1) do
-      delete :destroy, id: prototype.id
+      delete :destroy, id: prototype.permalink
     end
 
     assert_redirected_to prototypes_path

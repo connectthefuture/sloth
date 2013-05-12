@@ -1,4 +1,6 @@
 class PrototypesController < ApplicationController
+  before_filter :set_objects
+  
   # GET /prototypes
   # GET /prototypes.json
   def index
@@ -13,8 +15,6 @@ class PrototypesController < ApplicationController
   # GET /prototypes/1
   # GET /prototypes/1.json
   def show
-    @prototype = Prototype.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @prototype }
@@ -34,7 +34,6 @@ class PrototypesController < ApplicationController
 
   # GET /prototypes/1/edit
   def edit
-    @prototype = Prototype.find(params[:id])
   end
 
   # POST /prototypes
@@ -57,8 +56,6 @@ class PrototypesController < ApplicationController
   # PUT /prototypes/1
   # PUT /prototypes/1.json
   def update
-    @prototype = Prototype.find(params[:id])
-
     respond_to do |format|
       if @prototype.update_attributes(params[:prototype])
         format.html { redirect_to @prototype, notice: 'Prototype was successfully updated.' }
@@ -73,12 +70,17 @@ class PrototypesController < ApplicationController
   # DELETE /prototypes/1
   # DELETE /prototypes/1.json
   def destroy
-    @prototype = Prototype.find(params[:id])
     @prototype.destroy
 
     respond_to do |format|
       format.html { redirect_to prototypes_url }
       format.json { head :no_content }
     end
+  end
+  
+  private
+  
+  def set_objects
+    @prototype = Prototype.find_by_permalink!(params[:id]) if params[:id]
   end
 end
