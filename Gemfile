@@ -4,6 +4,7 @@ gem 'rails', '3.2.13'
 
 gem 'google_auth'
 gem 'bourbon'
+gem 'neat'
 gem 'paperclip'
 
 gem 'mysql2'
