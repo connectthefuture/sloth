@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'google_auth'
 gem 'bourbon'
+gem 'neat'
 gem 'paperclip'
 
 # Bundle edge Rails instead:
