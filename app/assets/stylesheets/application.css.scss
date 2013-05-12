@@ -24,7 +24,7 @@ a {
 
 .header {
   background: #111;
-  margin-bottom: 2em;
+  margin-bottom: 3em;
   @include clearfix;
   height: 4em;
 }
@@ -58,10 +58,17 @@ a {
 }
 
 .prototype-header {
-  margin-bottom: 2em;
+  @include clearfix();
+  margin-bottom: 3em;
   h1 {
+    @include span-columns(4);
     font-size: em(32);
     font-weight: bold;
+  }
+  p {
+    @include span-columns(8);
+    font-size: em(18);
+    line-height: em(24);
   }
 }
 
@@ -93,4 +100,9 @@ a {
     display: block;
     margin: 0 auto 0.5em auto;
   }
+}
+
+.page-grid .page {
+  @include span-columns(3);
+  @include omega(4n);
 }
