@@ -1,17 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Prototype:</b>
-  <%= @page.prototype.name %>
-</p>
-<p>
-  <b>Name:</b>
-  <%= @page.name %>
-</p>
-<p>
-  <b>Image:</b>
-  <%= @page.image %>
-</p>
+<%= image_tag @page.image.url(:display) %>
 
 <%= link_to 'Edit', edit_prototype_page_path(@prototype, @page) %> |
 <%= link_to 'Back', prototype_pages_path(@prototype) %>

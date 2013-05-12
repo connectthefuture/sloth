@@ -16,7 +16,7 @@
 <div class="page-grid">
   <% @prototype.pages.each do |page| %>
 
-    <%= link_to(edit_prototype_page_path(@prototype, page), { :class => "page" }) do %>
+    <%= link_to(prototype_page_path(@prototype, page), { :class => "page" }) do %>
       <%= image_tag page.image.url(:medium) %>
       <h2><%= page.name %></h2>
     <% end %>
