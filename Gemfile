@@ -25,6 +25,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'awesome_print'
   gem 'quiet_assets'
+  gem 'thin'
 
   gem 'mocha', require: false
   gem 'minitest'
