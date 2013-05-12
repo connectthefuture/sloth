@@ -1,3 +1,8 @@
+<% content_for :slothheader do %>
+  <%= link_to 'New Prototype', new_prototype_path, {:class => "button"} %>
+<% end %>
+
+
 <div class="prototype-grid">
   <% @prototypes.each do |prototype| %>
     <%= link_to(edit_prototype_path(prototype), { :class => "prototype" }) do %>
@@ -6,5 +11,3 @@
     <% end %>
   <% end %>
 </div>
-
-<%= link_to 'New Prototype', new_prototype_path, {:class => "button"} %>

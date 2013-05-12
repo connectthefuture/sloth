@@ -13,10 +13,17 @@ body, html {
   background: #222;
   color: #EEE;
   font-family: $helvetica;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   color: $color-teal;
+}
+
+.header {
+  height: 60px;
+  background: #111;
+  margin-bottom: 2em;
 }
 
 .inner {
@@ -33,7 +40,7 @@ a {
   text-decoration: none;
   @include span-columns(4);
   @include omega(3n);
-  margin-bottom: 2em;
+  margin-bottom: 1.8em;
   @include pad(1em);
   background: #333;
   border-radius: 2px;
@@ -47,6 +54,7 @@ a {
   }
   img {
     max-width: 100%;
+    max-height: 100%;
     display: block;
     margin: 0 auto 0.5em auto;
   }
