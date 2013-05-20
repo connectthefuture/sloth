@@ -4,6 +4,6 @@ FactoryGirl.define do
     pos_y 20
     width 100
     height 200
-    association :page, factory: :page
+    association :page_version, factory: :page_version
   end
 end
