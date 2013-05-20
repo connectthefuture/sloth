@@ -7,9 +7,10 @@ gem 'bourbon'
 gem 'neat'
 gem 'paperclip'
 gem 'acts_as_permalink'
-
 gem 'mysql2'
 gem 'jquery-rails'
+gem 'sequenced'
+gem 'rails_config'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

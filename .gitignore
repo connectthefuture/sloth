@@ -1,6 +1,10 @@
 /.bundle
 /db/*.sqlite3
+/db/structure.sql
 /log/*.log
 /tmp
 /config/database.yml
 /public/system
+/config/settings.local.yml
+/config/settings/*.local.yml
+/config/environments/*.local.yml

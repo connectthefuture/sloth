@@ -6,10 +6,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
+  <%= f.fields_for :page_versions do |ff| %>
+    <div class="field">
+      <%= ff.label :image %><br />
+      <%= ff.file_field :image %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

@@ -1,4 +1,12 @@
-<%= image_tag @page.image.url(:display) %>
+<h2><%= @page.name %></h2>
+<h3>
+  Version <%= @page_version.version %>
+  <% if @page_version.current? %>
+    (Current)
+  <% end %>
+</h3>
+
+<%= image_tag @page_version.image.url(:display) %>
 
 <%= link_to 'Edit', edit_admin_prototype_page_path(@prototype, @page) %> |
 <%= link_to 'Back', admin_prototype_pages_path(@prototype) %>

@@ -18,12 +18,17 @@ class Admin::PagesControllerTest < ActionController::TestCase
     get :new, prototype_id: prototype.permalink
     assert_response :success
   end
+  
+  test "should get new and set the page_versions to a new object" do
+    get :new, prototype_id: prototype.permalink
+    assert_equal 1, assigns(:page).page_versions.size
+  end
 
   test "should create page" do
     prototype = FactoryGirl.create(:prototype)
     
     assert_difference('Page.count') do
-      post :create, page: { name: "pie", image: test_image_rack_upload }, prototype_id: prototype.permalink
+      post :create, page: { name: "pie" }, prototype_id: prototype.permalink
     end
 
     assert_redirected_to admin_prototype_page_path(prototype, assigns(:page))

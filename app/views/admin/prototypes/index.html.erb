@@ -13,7 +13,7 @@
   <% @prototypes.each do |prototype| %>
     <%= link_to(admin_prototype_pages_path(prototype), class: "prototype") do %>
       <% if prototype.pages.any? %>
-        <%= image_tag prototype.pages.first.image.url(:medium) %>
+        <%= image_tag prototype.pages.first.current_version.image.url(:medium) %>
       <% else %>
         <%= image_tag "default_page.png" %>
       <% end %>

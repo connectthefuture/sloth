@@ -1,8 +1,8 @@
 class Link < ActiveRecord::Base
-  attr_accessible :height, :page_id, :pos_x, :pos_y, :width
+  attr_accessible :height, :page_version_id, :page_version, :pos_x, :pos_y, :width
 
-  belongs_to :page
+  belongs_to :page_version
 
-  validates :page, presence: true
+  validates :page_version, presence: true
 
 end

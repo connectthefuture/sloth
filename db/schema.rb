@@ -11,29 +11,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512052833) do
+ActiveRecord::Schema.define(:version => 20130519232041) do
 
   create_table "links", :force => true do |t|
     t.integer  "pos_x"
     t.integer  "pos_y"
     t.integer  "width"
     t.integer  "height"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "page_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "page_version_id"
   end
 
-  add_index "links", ["page_id"], :name => "index_links_on_page_id"
+  add_index "links", ["page_version_id"], :name => "index_links_on_page_version_id"
 
-  create_table "pages", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "prototype_id"
+  create_table "page_versions", :force => true do |t|
+    t.integer  "version"
+    t.integer  "page_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "page_versions", ["page_id"], :name => "index_page_versions_on_page_id"
+  add_index "page_versions", ["version"], :name => "index_page_versions_on_version"
+
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "prototype_id"
     t.integer  "sort"
   end
 

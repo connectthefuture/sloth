@@ -23,7 +23,7 @@ class Admin::PrototypesControllerTest < ActionController::TestCase
       post :create, prototype: { name: "name" }
     end
 
-    assert_redirected_to admin_prototype_path(assigns(:prototype))
+    assert_redirected_to admin_prototypes_path
   end
 
   test "should show prototype" do
@@ -38,7 +38,7 @@ class Admin::PrototypesControllerTest < ActionController::TestCase
 
   test "should update prototype" do
     put :update, id: prototype, prototype: { name: "name" }
-    assert_redirected_to admin_prototype_path(assigns(:prototype))
+    assert_redirected_to admin_prototypes_path
   end
 
   test "should destroy prototype" do

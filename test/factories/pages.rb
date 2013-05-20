@@ -4,7 +4,7 @@ FactoryGirl.define do
     sort 1
     association :prototype, factory: :prototype
     before(:create) do |page|
-      page.image = File.open(test_image_file)
+      page.page_versions << FactoryGirl.create(:page_version)
     end
   end
 end

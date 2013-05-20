@@ -1,0 +1,10 @@
+image_styles:
+  display: "1088x"
+  xlarge: "600x600>"
+  large: "400x400>"
+  medium: "300x300>"
+  small: "200x200>"
+  thumb: "100x100>"
+
+image_default_url: "/images/:style/missing.png"
+
