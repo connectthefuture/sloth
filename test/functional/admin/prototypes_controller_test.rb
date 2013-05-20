@@ -26,11 +26,6 @@ class Admin::PrototypesControllerTest < ActionController::TestCase
     assert_redirected_to admin_prototypes_path
   end
 
-  test "should show prototype" do
-    get :show, id: prototype.permalink
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: prototype.permalink
     assert_response :success

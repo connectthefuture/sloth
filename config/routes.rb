@@ -6,8 +6,9 @@ Sloth::Application.routes.draw do
   namespace :admin do
     root to: "prototypes#index"
     
-    resources :prototypes do
+    resources :prototypes, only: [:index, :edit, :create, :update, :destroy, :new] do
       resources :pages do
+        resources :page_versions, only: [:new, :create, :index, :show]
         resources :links
       end
     end

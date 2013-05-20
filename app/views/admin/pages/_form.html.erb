@@ -6,11 +6,13 @@
     <%= f.text_field :name %>
   </div>
 
-  <%= f.fields_for :page_versions do |ff| %>
-    <div class="field">
-      <%= ff.label :image %><br />
-      <%= ff.file_field :image %>
-    </div>
+  <% if f.object.new_record? %>
+    <%= f.fields_for :page_versions do |ff| %>
+      <div class="field">
+        <%= ff.label :image %><br />
+        <%= ff.file_field :image %>
+      </div>
+    <% end %>
   <% end %>
 
   <div class="actions">

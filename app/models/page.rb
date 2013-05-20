@@ -9,7 +9,6 @@ class Page < ActiveRecord::Base
 
   accepts_nested_attributes_for :page_versions 
 
-
   def current_version
     page_versions.first
   end

@@ -11,7 +11,6 @@ class PageVersion < ActiveRecord::Base
   
   validates :image, attachment_presence: true
 
-
   def current?
     page.current_version == self
   end
