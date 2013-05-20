@@ -1,6 +1,10 @@
 class Admin::PageVersionsController < ApplicationController
   before_filter :set_objects
 
+  def index
+    @page_versions = @page.page_versions
+  end
+  
   def new
     @page_version = @page.page_versions.build
   end
@@ -13,10 +17,6 @@ class Admin::PageVersionsController < ApplicationController
     else
       render action: "new"
     end
-  end
-
-  def index
-    @page_versions = @page.page_versions
   end
 
   private
