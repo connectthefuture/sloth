@@ -12,3 +12,5 @@
 <%= link_to 'Back', admin_prototype_pages_path(@prototype) %> |
 <%= link_to 'Previous Versions', admin_prototype_page_page_versions_path(@prototype, @page) %> |
 <%= link_to 'New Version', new_admin_prototype_page_page_version_path(@prototype, @page) %>
+
+<%= render partial: "comments", object: @page_version %>

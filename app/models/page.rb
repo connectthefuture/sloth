@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
   belongs_to :prototype
   
   has_many :page_versions, dependent: :destroy, order: "version DESC"
+  has_many :comments, through: :page_versions
 
   validates :name, presence: true
 

@@ -8,6 +8,7 @@ class PageVersion < ActiveRecord::Base
   belongs_to :page
   
   has_many :links, dependent: :destroy
+  has_many :comments
   
   validates :image, attachment_presence: true
 

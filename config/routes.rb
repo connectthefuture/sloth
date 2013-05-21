@@ -8,7 +8,9 @@ Sloth::Application.routes.draw do
     
     resources :prototypes, only: [:index, :edit, :create, :update, :destroy, :new] do
       resources :pages do
-        resources :page_versions, only: [:new, :create, :index, :show]
+        resources :page_versions, only: [:new, :create, :index, :show] do
+          resources :comments, only: [:create]
+        end
         resources :links
       end
     end
