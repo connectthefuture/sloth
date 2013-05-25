@@ -9,6 +9,9 @@ class Admin::PageVersionsController < ApplicationController
     @page_version = @page.page_versions.build
   end
 
+  def show
+  end
+
   def create
     @page_version = @page.page_versions.build(params[:page_version])
 
@@ -24,5 +27,6 @@ class Admin::PageVersionsController < ApplicationController
   def set_objects
     @prototype = Prototype.find_by_permalink!(params[:prototype_id])
     @page = @prototype.pages.find(params[:page_id])
+    @page_version = @page.page_versions.find(params[:id]) if params[:id]
   end
 end

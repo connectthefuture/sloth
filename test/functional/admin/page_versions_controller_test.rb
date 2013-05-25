@@ -3,7 +3,7 @@ require 'test_helper'
 class Admin::PageVersionsControllerTest < ActionController::TestCase
   let(:page){ FactoryGirl.create(:page) }
   let(:prototype){ page.prototype }
-  let(:page_version){ page.page_version }
+  let(:page_version){ page.page_versions.first }
 
   setup do
     login
@@ -26,5 +26,10 @@ class Admin::PageVersionsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to admin_prototype_page_path(prototype, assigns(:page))
+  end
+  
+  test "show should find objects and render" do
+    get :show, prototype_id: prototype.permalink, page_id: page.id, id: page_version.id
+    assert_template :show
   end
 end
