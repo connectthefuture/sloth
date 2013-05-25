@@ -7,7 +7,7 @@ class Admin::CommentsController < ApplicationController
         @comment = @page_version.comments.build(params[:comment].merge(user: current_user))
 
         if @comment.save
-          flash[:notice] = "Comment saved successfully"
+          flash.now[:notice] = "Comment saved successfully"
           @comment = nil
         end
       end

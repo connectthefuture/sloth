@@ -1,6 +1,9 @@
 <% page_version = comments %>
 <% page = page_version.page %>
 
+<div class="inline-flash notice"><%= flash.now[:notice] %></div>
+<div class="inline-flash error"><%= flash.now[:error] %></div>
+
 <div id="comments">
   <h3>Comments</h3>
   <div id="commentsForm">
