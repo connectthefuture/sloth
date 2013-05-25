@@ -10,5 +10,8 @@ class Prototype < ActiveRecord::Base
   validates :name, presence: true
   validates :user, presence: true  
   
+  def default_image
+    pages.first.current_version.image if pages.any?
+  end
   
 end

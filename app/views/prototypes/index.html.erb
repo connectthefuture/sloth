@@ -1,0 +1,18 @@
+<% content_for :header_title do %>
+  <p>Prototypes</p>
+<% end %>
+
+
+<div class="prototype-grid">
+  <% @prototypes.each do |prototype| %>
+    <%= link_to(prototype_path(prototype), class: "prototype") do %>
+      <% if prototype.default_image %>
+        <%= image_tag prototype.default_image.url(:medium) %>
+      <% else %>
+        <%= image_tag "default_page.png" %>
+      <% end %>
+      <h2 class="prototype-name"><%= prototype.name %></h2>
+      <h3 class="prototype-user-name">Test User</h3>
+    <% end %>
+  <% end %>
+</div>

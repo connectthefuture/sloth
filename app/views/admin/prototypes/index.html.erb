@@ -12,8 +12,8 @@
 <div class="prototype-grid">
   <% @prototypes.each do |prototype| %>
     <%= link_to(admin_prototype_pages_path(prototype), class: "prototype") do %>
-      <% if prototype.pages.any? %>
-        <%= image_tag prototype.pages.first.current_version.image.url(:medium) %>
+      <% if prototype.default_image %>
+        <%= image_tag prototype.default_image.url(:medium) %>
       <% else %>
         <%= image_tag "default_page.png" %>
       <% end %>
