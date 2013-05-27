@@ -7,6 +7,8 @@ class Comment < ActiveRecord::Base
   delegate :page, :page_id, :version, to: :page_version
   
   validates :body, presence: true
+  validates :pos_x, numericality: {greater_than_or_equal_to: 0, only_integer: true, allow_blank: true, allow_nil: true}
+  validates :pos_y, numericality: {greater_than_or_equal_to: 0, only_integer: true, allow_blank: true, allow_nil: true}
   validate :has_both_coordinates
   
   def annotation?
