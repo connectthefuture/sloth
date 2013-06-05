@@ -23,4 +23,15 @@ $ ->
       console.log "Entering view mode"
       @current_mode = "view"
 
+    # TODO
+
+    # ON LOAD VIEW MODE
+    # Hide links CSSes (but keep them active)
+    # Unload the Image Area Selection
+    # Show image comments
+
+    # ON LOAD EDIT MODE
+    # Load the IMAGE AREA SELECTION lib
+    # Hide image comments
+
   window.page = new Page
