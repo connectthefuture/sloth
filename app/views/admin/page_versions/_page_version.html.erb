@@ -6,7 +6,7 @@
   <% end %>
 </h3>
 
-<%= image_tag @page_version.image.url(:display) %>
+<%= image_tag @page_version.image.url(:display), class: "page-image" %>
 
 <%= link_to 'Pages', admin_prototype_pages_path(@prototype) %> |
 <%= link_to 'Edit Page', edit_admin_prototype_page_path(@prototype, @page) %> |
