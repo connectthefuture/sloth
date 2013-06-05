@@ -1,0 +1,20 @@
+<h2><%= @page.name %></h2>
+<h3>
+  Version <%= @page_version.version %>
+  <% if @page_version.current? %>
+    (Current)
+  <% end %>
+</h3>
+
+<%= image_tag @page_version.image.url(:display), class: "page-image" %>
+
+<%= link_to 'Pages', prototype_pages_path(@prototype) %> |
+<%= link_to 'Edit Page', edit_prototype_page_path(@prototype, @page) %> |
+<%= link_to 'All Versions', prototype_page_page_versions_path(@prototype, @page) %> |
+<%= link_to 'New Version', new_prototype_page_page_version_path(@prototype, @page) %>
+<% if !@page_version.current? %>
+  |
+  <%= link_to 'Current Version', prototype_page_path(@prototype, @page) %>
+<% end %>
+
+<%= render partial: "page_versions/comments", object: @page_version %>

@@ -2,10 +2,16 @@
   <p>Prototypes</p>
 <% end %>
 
+<% content_for :header_menu do %>
+  <ul>
+    <li><%= link_to 'New Prototype', new_prototype_path, {class: "primary"} %></li>
+  </ul>
+<% end %>
+
 
 <div class="prototype-grid">
   <% @prototypes.each do |prototype| %>
-    <%= link_to(prototype_path(prototype), class: "prototype") do %>
+    <%= link_to(prototype_pages_path(prototype), class: "prototype") do %>
       <% if prototype.default_image %>
         <%= image_tag prototype.default_image.url(:medium) %>
       <% else %>

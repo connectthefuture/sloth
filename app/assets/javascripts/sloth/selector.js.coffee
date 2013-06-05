@@ -28,7 +28,8 @@ class Sloth.Selector
     @start = undefined
 
   @mouseMove: (event) =>
-    corners = @calculateCorners(event.offsetX, event.offsetY)
+    if @start
+      corners = @calculateCorners(event.offsetX, event.offsetY)
 
   @createGhost: ->
 
@@ -41,3 +42,4 @@ class Sloth.Selector
     @onComplete = callback
     $(selector).on "mousedown", @mouseDown
     $(selector).on "mouseup", @mouseUp
+    $(selector).on "mousemove", @mouseMove

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Admin::CommentsControllerTest < ActionController::TestCase
+class CommentsControllerTest < ActionController::TestCase
   let(:page){ FactoryGirl.create(:page) }
   let(:prototype){ page.prototype }
   let(:page_version){ page.page_versions.first }

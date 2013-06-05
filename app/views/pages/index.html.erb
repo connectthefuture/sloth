@@ -1,0 +1,24 @@
+<% content_for :header_title do %>
+  <p><%= link_to "Prototypes", prototypes_path %>  / <%= @prototype.name %></p>
+<% end %>
+
+<% content_for :header_menu do %>
+  <ul>
+    <li><%= link_to 'New Page', new_prototype_page_path(@prototype), { :class => "primary"} %></li>
+  </ul>
+<% end %>
+
+<div class="prototype-header">
+  <h1><%= @prototype.name %></h1>
+  <p><%= @prototype.description %></p>
+</div>
+
+<div class="page-grid">
+  <% @prototype.pages.each do |page| %>
+
+    <%= link_to(prototype_page_path(@prototype, page), { :class => "page" }) do %>
+      <%= image_tag page.current_version.image.url(:medium) %>
+      <h2><%= page.name %></h2>
+    <% end %>
+  <% end %>
+</div>
