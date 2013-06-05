@@ -6,103 +6,201 @@
 @import "bourbon";
 @import "neat";
 
-$color-green: #67ab4b;
-$color-teal: #1fa8c4;
-$color-red: #882c20;
+/* Variables
+---------------------------------------------------- */
+
+$color-black:  #222;
+$color-blue:   #101c24;
+$color-teal:   #5dbf88;
+$color-purple: #b16ff7;
+$color-pink:   #dd006f;
+
+/* General
+---------------------------------------------------- */
 
 body, html {
-  background: #222;
-  color: #EEE;
+  background: #EEE;
+  color: $color-black;
   font-family: $helvetica;
   -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: $color-teal;
-  text-decoration: none;
-}
-
-.header {
-  background: #111;
-  margin-bottom: 3em;
-  @include clearfix;
-  height: 4em;
-}
-.header-title {
-  @include span-columns(6);
-  p {
-    float: left;
-    line-height: 4em;
-  }
-}
-.header-menu {
-  float: right;
-  display: inline-block;
-  text-align: right;
-  li {
-    float: left;
-    line-height: 4em;
-  }
-  a.primary {
-    color: $color-green;
-    font-weight: bold;
-  }
-  a.destroy {
-    color: $color-red;
-    font-weight: bold;
-  }
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 .inner {
-  @include outer-container;
+  min-width: 1020px;
 }
 
-.prototype-header {
+/* Header
+---------------------------------------------------- */
+
+.icon {
+  display: inline-block;
+  text-indent: -30000px;
+  height: 18px;
+  width: 18px;
+  background: #FFF;
+}
+
+/* Header
+---------------------------------------------------- */
+
+.header {
+  min-width: 1020px;
+  box-sizing: border-box;
+  height: 40px;
+  background: $color-blue;
   @include clearfix();
-  margin-bottom: 3em;
-  h1 {
-    @include span-columns(4);
-    font-size: em(32);
-    font-weight: bold;
-  }
-  p {
-    @include span-columns(8);
-    font-size: em(18);
-    line-height: em(24);
-  }
-}
-
-.prototype-grid .prototype, .page-grid .page {
-  text-decoration: none;
-  @include span-columns(4);
-  @include omega(3n);
-  margin-bottom: 1.8em;
-  @include pad(1em);
-  background: #333;
-  border-radius: 2px;
   color: #FFF;
-  &:hover {
-    background: #444;
+  a {
+    color: #FFF;
   }
-  h2 {
-    font-weight: bold;
-    text-align: center;
-  }
-  h3 {
-    margin-top: 0.5em;
-    color: #999;
-    font-size: em(12);
-    text-align: center;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-    margin: 0 auto 0.5em auto;
-  }
+}
+.header-logo {
+  @include span-columns(3);
+}
+.header-breadcrumbs {
+  @include span-columns(6);
+  text-align: center;
+}
+.header-user {
+  @include span-columns(3);
+  text-align: right;
 }
 
-.page-grid .page {
-  @include span-columns(3);
-  @include omega(4n);
+/* Main Menu
+---------------------------------------------------- */
+
+.mainmenu {
+  min-width: 1020px;
+  box-sizing: border-box;
+  height: 40px;
+  background: lighten($color-blue,5%);
+  @include clearfix();
+  color: #FFF;
+  a {
+    color: #FFF;
+  }
 }
+.mainmenu-view li, .mainmenu-activity li {
+  float: left;
+  margin: 0 6px 0 0;
+}
+.mainmenu-activity-title {
+  float: left;
+}
+.mainmenu-view {
+  display: block;
+  @include span-columns(4);
+}
+.mainmenu-activity {
+  display: block;
+  @include span-columns(4);
+  @include shift(4);
+  text-align: right;
+}
+
+/* Version
+---------------------------------------------------- */
+
+.version {
+  @include span-columns(8);
+}
+
+/* Activity
+---------------------------------------------------- */
+
+.activity {
+  @include span-columns(4);
+  background: #FFF;
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  right: 0;
+}
+
+
+
+.activity-feed {
+  display: block;
+  overflow-y: scroll;
+  overflow-x: visible;
+  @include clearfix();
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 200px;
+  border-bottom: 1px solid #EEE;
+}
+
+.activity-actions {
+  display: block;
+  @include clearfix();
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 199px;
+}
+
+.activity-item {
+  padding: 24px;
+  position: relative;
+  border-bottom: 1px solid #EEE;
+}
+.activity-item-user {
+  position: relative;
+  height: 40px;
+  @include clearfix();
+  display: block;
+  margin: 0 0 18px 0;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 60px;
+    background: #222;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  span {
+    display: block;
+    padding: 0 0 0 52px;
+    line-height: 40px;
+  }
+}
+.activity-item-meta {
+  font-size: 12px;
+}
+
+.activity-notification {
+  padding: 12px 24px;
+  color: #FFF;
+}
+
+.activity-item-annotation {
+  border-left: 6px solid $color-purple;
+}
+.activity-item-annotation-number {
+  height: 40px;
+  width: 40px;
+  display: block;
+  color: #FFF;
+  line-height: 40px;
+  font-weight: bold;
+  background: $color-purple;
+  text-align: center;
+  position: absolute;
+  top: 24px;
+  left: -20px;
+}
+.activity-notification-approval {
+  background: $color-teal;
+}
+.activity-notification-like {
+  background: $color-pink;
+}
+

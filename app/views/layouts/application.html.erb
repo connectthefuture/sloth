@@ -10,20 +10,121 @@
 
 <header class="header">
   <div class="inner">
-    <div class="header-title">
-      <%= content_for :header_title %>
+    <div class="header-logo">
+      <h1>Sloth</h1>
     </div>
-    <div class="header-menu">
-      <%= content_for :header_menu %>
+    <div class="header-breadcrumbs">
+      <p><a href="#" class="header-breadcrumbs-link">Apps</a><span class="header-breadcrumbs-divider"> / </span><a class="header-breadcrumbs-link" href="#">Embedded App Store</a><span class="header-breadcrumbs-divider"> / </span> Admin Settings</p>
     </div>
-  </div>
-</header>
+    <div class="header-user">
+      <a href="#">Ian Mortier</a>
+    </div>
+  </div> <!-- .inner -->
+</header> <!-- .header -->
+
+<div class="mainmenu">
+  <div class="inner">
+    <nav class="mainmenu-view">
+      <ul>
+        <li><a class="icon" href="">Edit Project</a></li>
+        <li><a class="icon" href="">Edit Version</a></li>
+      </ul>
+      <ul>
+        <li><a class="icon" href="">Presentation Mode</a></li>
+        <li><a class="icon" href="">Show Links</a></li>
+        <li><a class="icon" href="">Show Annotations</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="mainmenu-activity">
+      <span class="mainmenu-activity-title">Activity</span>
+      <ul>
+        <li class="mainmenu-activity-views">26</li>
+        <li class="mainmenu-activity-likes">14</li>
+      </ul>
+    </a>
+  </div> <!-- .inner -->
+</div> <!-- .mainmenu -->
 
 <div class="content">
   <div class="inner">
-    <%= yield %>
-  </div>
-</div>
+    <div class="version">
+      <%= yield %>
+    </div>
+    <div class="activity">
+
+      <ul class="activity-feed">
+
+        <li class="activity-item activity-item-comment">
+          <a class="activity-item-user">
+            <img src="#" alt="Ian Mortier"/>
+            <span>Ian Mortier</span>
+          </a>
+          <p class="activity-item-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <footer class="activity-item-meta">
+            <p><i class="icon icon-activity-comment"></i> Comment on version 1 two hours ago</p>
+          </footer>
+        </li>
+
+        <li class="activity-notification activity-notification-approval">
+          <p><i class="icon icon-activity-approval"></i> Approved by Alex MacDonell yesterday</p>
+        </li>
+
+        <li class="activity-notification activity-notification-like">
+          <p><i class="icon icon-activity-like"></i> Liked by Alex MacDonell yesterday</p>
+        </li>
+
+        <li class="activity-item activity-item-annotation">
+          <a class="activity-item-annotation-number" href="#">2</a>
+          <a class="activity-item-user">
+            <img src="#" alt="Alex MacDonell"/>
+            <span>Alex MacDonell</span>
+          </a>
+          <p class="activity-item-body"><strong>@ian.mortier</strong> Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis.</p>
+          <footer class="activity-item-meta">
+            <p><i class="icon icon-activity-annotation"></i> Annotation on version 1 yesterday</p>
+          </footer>
+        </li>
+
+        <li class="activity-item activity-item-annotation">
+          <a class="activity-item-annotation-number" href="#">1</a>
+          <a class="activity-item-user">
+            <img src="#" alt="Christopher Lobay"/>
+            <span>Christopher Lobay</span>
+          </a>
+          <p class="activity-item-body">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui.</p>
+          <footer class="activity-item-meta">
+            <p><i class="icon icon-activity-annotation"></i> Annotation on version 1 yesterday</p>
+          </footer>
+        </li>
+
+        <li class="activity-item activity-item-comment">
+          <a class="activity-item-user">
+            <img src="#" alt="Christopher Lobay"/>
+            <span>Christopher Lobay</span>
+          </a>
+          <p class="activity-item-body"><strong>@ian.mortier</strong> Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+          <footer class="activity-item-meta">
+            <p><i class="icon icon-activity-comment"></i> Comment on version 1 two days ago</p>
+          </footer>
+        </li>
+
+        <li class="activity-notification activity-notification-like">
+          <p><i class="icon icon-activity-like"></i> Liked by Christopher Lobay two days ago</p>
+        </li>
+
+      </ul> <!-- .activity-feed -->
+
+      <div class="activity-actions">
+        <a class="button button-primary activity-actions-approve" href="#">Approve</a>
+        <form class="activity-actions-commentform" action="#">
+          <textarea class="activity-actions-commentform-body"></textarea>
+          <input class="button button-primary activity-actions-commentform-submit" type="submit" value="Comment" />
+        </form>
+      </div> <!-- .activity-actions -->
+
+    </div> <!-- .activity -->
+  </div> <!-- .inner -->
+</div> <!-- .content -->
 
 </body>
 </html>
