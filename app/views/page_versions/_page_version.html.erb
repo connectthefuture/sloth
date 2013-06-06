@@ -6,8 +6,10 @@
       (Current)
     <% end %>
   </h3>
-
-  <%= image_tag @page_version.image.url(:display), class: "page-image" %>
+  
+  <div id="page_image_holder" style="position: relative">
+    <%= image_tag @page_version.image.url(:display), class: "page-image", draggable: "false" %>
+  </div>
 
   <%= link_to 'Pages', prototype_pages_path(@prototype) %> |
   <%= link_to 'Edit Page', edit_prototype_page_path(@prototype, @page) %> |
