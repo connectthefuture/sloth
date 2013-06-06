@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130521004917) do
+ActiveRecord::Schema.define(:version => 20130606132458) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(:version => 20130521004917) do
   add_index "comments", ["created_at"], :name => "index_comments_on_created_at"
   add_index "comments", ["page_version_id"], :name => "index_comments_on_page_version_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "hearts", :force => true do |t|
+    t.integer  "heartable_id"
+    t.string   "heartable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "hearts", ["heartable_id", "heartable_type"], :name => "index_hearts_on_heartable_id_and_heartable_type"
+  add_index "hearts", ["heartable_id"], :name => "index_hearts_on_heartable_id"
+  add_index "hearts", ["heartable_type"], :name => "index_hearts_on_heartable_type"
+  add_index "hearts", ["user_id"], :name => "index_hearts_on_user_id"
 
   create_table "links", :force => true do |t|
     t.integer  "pos_x"
@@ -85,5 +98,18 @@ ActiveRecord::Schema.define(:version => 20130521004917) do
   end
 
   add_index "users", ["uid"], :name => "index_users_on_uid"
+
+  create_table "views", :force => true do |t|
+    t.integer  "viewable_id"
+    t.string   "viewable_type"
+    t.integer  "user_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "views", ["user_id"], :name => "index_views_on_user_id"
+  add_index "views", ["viewable_id", "viewable_type"], :name => "index_views_on_viewable_id_and_viewable_type"
+  add_index "views", ["viewable_id"], :name => "index_views_on_viewable_id"
+  add_index "views", ["viewable_type"], :name => "index_views_on_viewable_type"
 
 end

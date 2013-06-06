@@ -1,6 +1,9 @@
 class Page < ActiveRecord::Base
   attr_accessible :name, :page_versions_attributes
 
+  include Viewable
+  include Heartable
+
   belongs_to :prototype
   
   has_many :page_versions, dependent: :destroy, order: "version DESC"

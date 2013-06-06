@@ -37,6 +37,14 @@ class PrototypesController < ApplicationController
     redirect_to prototypes_path
   end
   
+  def heart
+    responds_to do |wants|
+      wants.js do
+        @prototype.heart(current_user)
+      end
+    end
+  end
+  
   private
   
   def set_objects

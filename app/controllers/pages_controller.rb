@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   before_filter :set_objects
+  before_filter :update_prototype_views, only: [:index, :show]
+  before_filter :update_page_views, only: [:show]
 
   def index
     @pages = @prototype.pages
@@ -39,6 +41,14 @@ class PagesController < ApplicationController
 
     redirect_to prototype_pages_path
   end
+  
+  def heart
+    responds_to do |wants|
+      wants.js do
+        @page.heart(current_user)
+      end
+    end
+  end
 
   private
 
@@ -46,5 +56,14 @@ class PagesController < ApplicationController
     @prototype = Prototype.find_by_permalink!(params[:prototype_id])
     @page = @prototype.pages.find(params[:id]) if params[:id]
     @page_version = @page.current_version if @page
+  end
+  
+  def update_page_views
+    @page.view(current_user)
+    @prototype.view(current_user)
+  end
+  
+  def update_prototype_views
+    @prototype.view(current_user)
   end
 end
