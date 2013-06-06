@@ -136,7 +136,14 @@ body, html {
 ---------------------------------------------------- */
 
 .version {
-  @include span-columns(8);
+  width: 68.23843%;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow: scroll;
 }
 
 /* Activity
