@@ -53,19 +53,32 @@ body, html {
   background: $color-blue;
   @include clearfix();
   color: #FFF;
+  line-height: 40px;
   a {
     color: #FFF;
   }
 }
 .header-logo {
   @include span-columns(3);
+  padding: 0 0 0 24px;
+  h1 {
+    font-weight: bold;
+  }
 }
 .header-breadcrumbs {
   @include span-columns(6);
   text-align: center;
 }
+.header-breadcrumbs-divider {
+  color: lighten($color-blue,20%);
+}
+.header-breadcrumbs-link {
+  color: lighten($color-blue,40%) !important;
+  text-decoration: none;
+}
 .header-user {
   @include span-columns(3);
+  padding: 0 24px 0 0;
   text-align: right;
 }
 
@@ -101,6 +114,22 @@ body, html {
   text-align: right;
 }
 
+/* Content
+---------------------------------------------------- */
+
+.content {
+  min-width: 1020px;
+  box-sizing: border-box;
+  @include clearfix();
+  position: relative;
+  overflow: visible;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 /* Version
 ---------------------------------------------------- */
 
@@ -115,12 +144,11 @@ body, html {
   @include span-columns(4);
   background: #FFF;
   position: absolute;
-  top: 80px;
+  top: 0;
   bottom: 0;
   right: 0;
+  height: 100%;
 }
-
-
 
 .activity-feed {
   display: block;
