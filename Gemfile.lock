@@ -59,7 +59,7 @@ GEM
     factory_girl_rails (4.2.1)
       factory_girl (~> 4.2.0)
       railties (>= 3.0.0)
-    ffi (1.8.1)
+    ffi (1.14.2)
     formatador (0.2.4)
     gembeat (0.0.1)
     google_auth (0.0.3)
